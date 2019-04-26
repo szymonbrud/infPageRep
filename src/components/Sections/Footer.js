@@ -15,15 +15,16 @@ const MainWrapper = styled.div`
 `;
 
 const P1 = styled.p`
+  margin: 5% 0 0 2%;
   color: #000;
   width: 98%;
-  margin-left: 2%;
   font-size: 1.1rem;
   font-weight: ${fonts.medium};
   text-align: center;
 `;
 
 const P2 = styled.p`
+  margin: 2% 0 5% 0;
   color: #fff;
   font-weight: ${fonts.medium};
 `;
