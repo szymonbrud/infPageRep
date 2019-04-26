@@ -18,6 +18,8 @@ const MainWrapper = styled.div`
   grid-template-rows: 8vh 25vh 17vh 10vh auto;
 `;
 
+
+
 const BoxTitle = styled.div`
   grid-column: 1/3;
   grid-row: 2/3;
@@ -65,7 +67,7 @@ const Box = styled(YellowRadiusBox)`
 const Box2 = styled(YellowRadiusBox)`
   width: 80%;
   height: 7vh;
-  font-size: .9rem;
+  font-size: .8rem;
   margin: 2% 0 0 15%;
   grid-column: 1/3;
   grid-row: 4/5;
@@ -94,7 +96,7 @@ const Start = () => (
             <P>{
               stronaGlownas[0].napis
             }</P>
-            <Box>AKTUALNOŚCI</Box>
+            <Box >AKTUALNOŚCI</Box>
           </BoxTitle>
           <Logo/>
           <Box2>{stronaGlownas[0].kiedyNapis}</Box2>

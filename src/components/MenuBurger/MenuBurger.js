@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import { colors } from '../../utils/colors';
 import { fonts } from '../../utils/fonts';
 
+import media from '../../utils/media';
+
 const MainWrapper = styled.div`
   height: 7vh;
   width: 100%;
@@ -33,7 +35,7 @@ const MainWrapper = styled.div`
 `;
 
 const Wrapper = styled.div`
-  width: 5vh;
+  width: 32px;
   height: 24px;
   position: relative;
 
@@ -71,8 +73,12 @@ const H1 = styled.h1`
   z-index: 2000;
   margin-right: 10%;
 
+  ${media.tablet`
+    margin-right: 45%;
+  `}
+
   transition: transform .2s .3s;
-  transform: translateX(${({visibleMenu}) => visibleMenu ? 0 : -120}%);
+  transform: translateX(${({visibleMenu}) => visibleMenu ? 0 : -200}%);
   transform: translateX(${({a}) => a ? 0 : null}%);
 `;
 

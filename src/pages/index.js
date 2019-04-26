@@ -23,6 +23,25 @@ const MainMainWrapper = styled.div`
   left: -8px;
 `;
 
+const Landscape = styled.div`
+  display: none;
+
+  @media (orientation: landscape){
+    position: fixed;
+    background: grey;
+    z-index: 9000;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    font-size: 2rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }   
+`;
+
 class IndexPage extends Component {
 
   constructor(){
@@ -117,6 +136,7 @@ class IndexPage extends Component {
             <Kontakt/>
             <Footer/>
           </MainMainWrapper>
+          <Landscape>przekręć telefon</Landscape>
         </Layout>
       </>
     )
