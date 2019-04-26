@@ -73,10 +73,7 @@ const H1 = styled.h1`
   z-index: 2000;
   margin-right: 10%;
 
-  ${media.tablet`
-    margin-right: 45%;
-  `}
-
+  
   transition: transform .2s .3s;
   transform: translateX(${({visibleMenu}) => visibleMenu ? 0 : -200}%);
   transform: translateX(${({a}) => a ? 0 : null}%);
