@@ -10,6 +10,7 @@ import CoRobimy from '../components/Sections/CoRobimy';
 import MenuLinks from '../components/MenuBurger/MenuLinks';
 import Aktualnosci from '../components/Sections/Aktualnosci';
 import Kontakt from "../components/Sections/Kontakt";
+import Footer from '../components/Sections/Footer';
 
 import getHeightSec from '../functions/getHeightSec';
 
@@ -114,6 +115,7 @@ class IndexPage extends Component {
             <CoRobimy/>
             <Aktualnosci/>
             <Kontakt/>
+            <Footer/>
           </MainMainWrapper>
         </Layout>
       </>

@@ -11,7 +11,7 @@ import { contactToMe } from '../../utils/contactToMe';
 
 const MainWrapper = styled.div`
   width: 100%;
-  min-height: 100vh;
+  padding-bottom: 4vh;
 `;
 
 const H1 = styled.div`
@@ -40,8 +40,6 @@ const WrapperEmailSchool = styled.div`
   grid-column: 1/3;
   grid-row: 1/2;
   margin-left: 2%;
-  /* display: flex; */
-  /* flex-wrap: wrap; */
 `;
 
 const EmailUser = styled.p`
