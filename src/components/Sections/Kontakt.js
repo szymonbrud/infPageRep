@@ -6,6 +6,9 @@ import { fonts } from '../../utils/fonts';
 
 import bg from '../../images/wiadomosci.png';
 
+import { contactToMe } from '../../utils/contactToMe';
+
+
 const MainWrapper = styled.div`
   width: 100%;
   min-height: 100vh;
@@ -28,17 +31,50 @@ const Img = styled.div`
 `;
 
 const WrapperEmail = styled.div`
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
   width: 100%;
 `;
 
-const emailUser = styled.p`
-
+const WrapperEmailSchool = styled.div`
+  grid-column: 1/3;
+  grid-row: 1/2;
+  margin-left: 2%;
+  /* display: flex; */
+  /* flex-wrap: wrap; */
 `;
 
-const emailName = styled.p`
-  
+const EmailUser = styled.p`
+  margin: 4% 0 0 4%;
+  padding: 0;
+  color: ${colors.yellow};
+  font-weight: ${fonts.medium};
+`; 
+
+const EmailName = styled.p`
+  margin: 0 0 0 4%;
+  padding: 0;
+  font-weight: ${fonts.regular};
+`;
+
+const WrapperForContactToMe = styled.div`
+  grid-column: 1/3;
+  grid-row:2/3;
+  margin: 7vh 0 0 2%;
+  min-height: 20vh;
+`;
+
+const H1_contactMe = styled.h1`
+  font-size: 1rem;
+  margin-left: 4%;
+`; 
+
+const EmailNameA = styled.a`
+  margin: 0 0 0 4%;
+  padding: 0;
+  font-weight: ${fonts.regular};
+  text-decoration: none;
+  color: black;
 `;
 
 const Kontakt = () => (
@@ -61,7 +97,32 @@ const Kontakt = () => (
           <H1>Kontakt</H1>
           <Img/>
           <WrapperEmail>
-
+            <WrapperEmailSchool>
+              {
+                console.log(kontakts)
+              }
+              {
+                kontakts.map(element => (
+                  <>
+                    <EmailUser>{`${element.kogoEmaim}:`}</EmailUser>
+                    <EmailName>{element.email}</EmailName>
+                  </> 
+                ))
+              }
+            </WrapperEmailSchool>
+            <WrapperForContactToMe>
+              <H1_contactMe>Strona napisana oraz zaprojektowana przez: Szymona Bruda</H1_contactMe>
+              <EmailUser>{`${contactToMe[0].what_name}: `}</EmailUser>
+              <EmailNameA
+                // href={'https://github.com/szymonqqaz'} 
+                href={contactToMe[0].kontakt}
+                target={'blank'}
+              >
+                {`${contactToMe[0].kontakt}`}
+              </EmailNameA>
+              <EmailUser>{contactToMe[1].what_name}</EmailUser>
+              <EmailName>{contactToMe[1].kontakt}</EmailName>
+            </WrapperForContactToMe>
           </WrapperEmail>
         </MainWrapper>
       </>
