@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import { colors } from '../../utils/colors';
 import { fonts } from '../../utils/fonts';
 
+import media from '../../utils/media';
+
 const MainWrapper = styled.div`
   width: 100%;
   min-height: 15vh;
@@ -12,6 +14,8 @@ const MainWrapper = styled.div`
   justify-content: center;
   background: ${colors.yellow};
   flex-direction: column;
+
+  
 `;
 
 const P1 = styled.p`
@@ -21,12 +25,20 @@ const P1 = styled.p`
   font-size: 1.1rem;
   font-weight: ${fonts.medium};
   text-align: center;
+
+  ${media.tablet`
+    font-size: 1.4rem;
+  `}
 `;
 
 const P2 = styled.p`
   margin: 2% 0 5% 0;
   color: #fff;
   font-weight: ${fonts.medium};
+
+  ${media.tablet`
+    font-size: 1.8rem;
+  `}
 `;
 
 const Footer = () => (

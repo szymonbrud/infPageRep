@@ -10,15 +10,19 @@ import logo from '../../images/logo.png';
 import { colors } from '../../utils/colors';
 import { fonts } from '../../utils/fonts';
 
+import media from '../../utils/media';
+
 const MainWrapper = styled.div`
   height: 100vh;
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 8vh 25vh 17vh 10vh auto;
+
+  ${media.tablet`
+    grid-template-rows: 8vh auto 17vh auto  50vh;
+  `}
 `;
-
-
 
 const BoxTitle = styled.div`
   grid-column: 1/3;
@@ -30,6 +34,10 @@ const H1 = styled.h1`
   font-size: 2rem;
   font-weight: ${fonts.medium};
   margin: 0 5% 1%;
+
+  ${media.tablet`
+    font-size: 3rem;
+  `}
 `;
 
 const B = styled.b`
@@ -51,6 +59,8 @@ const Img = styled.div`
 
 
 const Logo = styled.div`
+  margin-left: 20%;
+  width: 60%;
   background: url('${logo}') no-repeat top;
   background-size: cover;
   grid-column: 1/3;
@@ -62,6 +72,11 @@ const Box = styled(YellowRadiusBox)`
   height: 5vh;
   font-size: .9rem;
   margin: 2% 0 0 40%;
+
+  ${media.tablet`
+    font-size: 1.3rem;
+    border-radius: 50px;
+  `}
 `;
 
 const Box2 = styled(YellowRadiusBox)`
@@ -72,6 +87,13 @@ const Box2 = styled(YellowRadiusBox)`
   grid-column: 1/3;
   grid-row: 4/5;
   border-radius: 50px;
+
+  ${media.tablet`
+    width: 60%;
+    height: 5vh;
+    font-size: 1.2rem;
+    margin: 2% 0 0 35%;
+  `}
 `;
 
 const Start = () => (

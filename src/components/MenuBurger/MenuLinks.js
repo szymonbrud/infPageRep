@@ -7,6 +7,8 @@ import { colors } from '../../utils/colors';
 
 import { CircleInMenu, circleInMenu } from '../../utils/circleInMenu';
 
+import media from '../../utils/media';
+
 const MainWrapper = styled.div`
   width: 100%;
   height: 101vh;
@@ -24,6 +26,10 @@ const MainWrapper = styled.div`
   align-items: left;
   justify-content: center;
   font-size: 1.4rem;
+
+  ${media.tablet`
+    font-size: 1.8rem;
+  `}
 `;
 
 

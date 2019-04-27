@@ -8,6 +8,7 @@ import bg from '../../images/wiadomosci.png';
 
 import { contactToMe } from '../../utils/contactToMe';
 
+import media from '../../utils/media';
 
 const MainWrapper = styled.div`
   width: 100%;
@@ -65,6 +66,10 @@ const WrapperForContactToMe = styled.div`
 const H1_contactMe = styled.h1`
   font-size: 1rem;
   margin-left: 4%;
+
+  ${media.tablet`
+    font-size: 2rem;
+  `}
 `; 
 
 const EmailNameA = styled.a`

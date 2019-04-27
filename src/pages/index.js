@@ -14,6 +14,8 @@ import Footer from '../components/Sections/Footer';
 
 import getHeightSec from '../functions/getHeightSec';
 
+import media from '../utils/media';
+
 const MainMainWrapper = styled.div`
   @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
   font-family: 'Roboto', sans-serif;
@@ -21,6 +23,10 @@ const MainMainWrapper = styled.div`
   width: calc(100% + 8px);
   top: 0;
   left: -8px;
+
+  ${media.tablet`
+    font-size: 24px;
+  `}
 `;
 
 const Landscape = styled.div`
@@ -40,6 +46,10 @@ const Landscape = styled.div`
     align-items: center;
     justify-content: center;
   }   
+
+  ${media.desktop`
+    display: none;
+  `}
 `;
 
 class IndexPage extends Component {
