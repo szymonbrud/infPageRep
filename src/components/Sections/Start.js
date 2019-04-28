@@ -4,13 +4,16 @@ import { StaticQuery, graphql } from "gatsby";
 
 import YellowRadiusBox from '../yellowRadiusBox/yellowRadiusBox';
 
-import bg from '../../images/devPhone.png';
+import bg from '../../images/bgProfessor.png';
 import logo from '../../images/logo.png';
+import bgDesktop from '../../images/bgProfessor.png';
 
 import { colors } from '../../utils/colors';
 import { fonts } from '../../utils/fonts';
 
 import media from '../../utils/media';
+
+import Tablica from '../Tablica/Tablica';
 
 const MainWrapper = styled.div`
   height: 100vh;
@@ -22,11 +25,21 @@ const MainWrapper = styled.div`
   ${media.tablet`
     grid-template-rows: 8vh auto 17vh auto  50vh;
   `}
+
+  ${media.desktop`
+    grid-template-columns: 65% auto;
+    grid-template-rows: 8vh 35vh 57vmin;    
+  `}
 `;
 
 const BoxTitle = styled.div`
   grid-column: 1/3;
   grid-row: 2/3;
+
+  ${media.desktop`
+    grid-column: 1/2;
+    margin-left: 5%;
+  `}
 `;
 
 const H1 = styled.h1`
@@ -53,18 +66,35 @@ const P = styled.p`
 const Img = styled.div`
   background: url('${bg}') no-repeat top;
   background-size: cover; 
-  grid-column: 1 / 3;
+  grid-column: 1/3;
   grid-row: 5; 
+
+  ${media.desktop`
+    background: url('${bgDesktop}') no-repeat top;
+    background-size: cover;
+    grid-column: 1/2;
+    grid-row: 3;
+    width: 70vmin;
+    justify-self: center;
+  `}
 `;
 
 
 const Logo = styled.div`
-  margin-left: 20%;
-  width: 60%;
+  justify-self: center;
+  width: 100vmin;
   background: url('${logo}') no-repeat top;
   background-size: cover;
   grid-column: 1/3;
   grid-row: 3/4;
+
+  ${media.tablet`
+    width: 60vmin;
+  `}
+
+  ${media.desktop`
+    display: none;
+  `}
 `;
 
 const Box = styled(YellowRadiusBox)`
@@ -76,6 +106,11 @@ const Box = styled(YellowRadiusBox)`
   ${media.tablet`
     font-size: 1.3rem;
     border-radius: 50px;
+  `}
+
+  ${media.desktop`
+    height: 6vmin;
+    width: 40%;
   `}
 `;
 
@@ -93,6 +128,10 @@ const Box2 = styled(YellowRadiusBox)`
     height: 5vh;
     font-size: 1.2rem;
     margin: 2% 0 0 35%;
+  `}
+
+  ${media.desktop`
+    display: none;
   `}
 `;
 
@@ -118,11 +157,12 @@ const Start = () => (
             <P>{
               stronaGlownas[0].napis
             }</P>
-            <Box >AKTUALNOŚCI</Box>
+            <Box>AKTUALNOŚCI</Box>
           </BoxTitle>
           <Logo/>
           <Box2>{stronaGlownas[0].kiedyNapis}</Box2>
           <Img/>
+          <Tablica string={stronaGlownas[0].kiedyNapis}/>
         </MainWrapper>
       </>
     )}

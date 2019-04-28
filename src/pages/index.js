@@ -11,6 +11,7 @@ import MenuLinks from '../components/MenuBurger/MenuLinks';
 import Aktualnosci from '../components/Sections/Aktualnosci';
 import Kontakt from "../components/Sections/Kontakt";
 import Footer from '../components/Sections/Footer';
+import MenuDesktop from '../components/MenuDesktop/MenuDesktop';
 
 import getHeightSec from '../functions/getHeightSec';
 
@@ -20,7 +21,7 @@ const MainMainWrapper = styled.div`
   @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
   font-family: 'Roboto', sans-serif;
   position: absolute;
-  width: calc(100% + 8px);
+  width: calc(100% + 7px);
   top: 0;
   left: -8px;
 
@@ -64,6 +65,7 @@ class IndexPage extends Component {
       wysWszystkichSek: [],
       visi: false,
       visibleMenuLinksApp: false,
+      whereWeAreHere: 1,
     }
   }
 
@@ -72,6 +74,10 @@ class IndexPage extends Component {
     window.addEventListener('resize', this.handleWindowSizeChange);
 
     window.addEventListener('scroll', this.throttle(this.callback, 100));
+    this.setState({wysWszystkichSek: getHeightSec()});
+    setTimeout(() => {
+      console.log(this.state.wysWszystkichSek);
+    }, 200);
   }
 
   componentWillUnmount() {
@@ -99,14 +105,28 @@ class IndexPage extends Component {
   }
 
   callback = () => {
-    const { visibleMenu, sec1Hegiht } = this.state;
+    const { visibleMenu, sec1Hegiht, wysWszystkichSek, whereWeAreHere} = this.state;
 
     if(window.pageYOffset >= sec1Hegiht){
       if(visibleMenu !== true) this.setState({visibleMenu: true});
     } else {
       if(visibleMenu !== false) this.setState({visibleMenu: false});
     }  
+
+    if(window.pageYOffset <= wysWszystkichSek[1]){
+      if(whereWeAreHere !== 1) this.setState({whereWeAreHere: 1});
+    } else if(window.pageYOffset >= wysWszystkichSek[1] && window.pageYOffset <= wysWszystkichSek[2]){
+      if(whereWeAreHere !== 2) this.setState({whereWeAreHere: 2});
+    } else if(window.pageYOffset >= wysWszystkichSek[2] && window.pageYOffset <= wysWszystkichSek[3]){
+      if(whereWeAreHere !== 3) this.setState({whereWeAreHere: 3});
+    } else {
+      if(whereWeAreHere !== 4) this.setState({whereWeAreHere: 4});
+    }
+
+    console.log(`wys: ${window.pageYOffset} gdzie: ${whereWeAreHere}`);
   }
+
+
 
   takeVisibleMenuLinks = (a) => {
     this.setState({visibleMenuLinks: a});
@@ -122,13 +142,19 @@ class IndexPage extends Component {
     }, 200);
   }
 
+  MenuDesktopCliced = (linkNumber) => {
+    this.setState({wysWszystkichSek: getHeightSec()});
+    this.scroll(linkNumber);
+  }
+
   changeParentVisible = (a) => {
-    this.setState({visibleMenuLinksApp: a})
+    this.setState({visibleMenuLinksApp: a});
+    
   }
 
   render(){
 
-    const { visibleMenu, visibleMenuLinks, visibleMenuLinksApp } = this.state;
+    const { visibleMenu, visibleMenuLinks, visibleMenuLinksApp, whereWeAreHere } = this.state;
     
     return(
       <>
@@ -138,8 +164,17 @@ class IndexPage extends Component {
               visibleMenu={visibleMenu}
               Parent={this.takeVisibleMenuLinks}
               visibleMenuLinks={visibleMenuLinksApp}
-              VisibleToParent={this.changeParentVisible}/>
-            <MenuLinks visibleMenuLinks={visibleMenuLinks} clic={this.menuLinksCliced}/>
+              VisibleToParent={this.changeParentVisible}
+            />
+            <MenuLinks
+              visibleMenuLinks={visibleMenuLinks}
+              clic={this.menuLinksCliced}
+            />
+            <MenuDesktop 
+              whereWeAreHere={whereWeAreHere}
+              clicedMenu={this.MenuDesktopCliced}
+              visibleMenu={visibleMenu}
+            />
             <Start/>
             <CoRobimy/>
             <Aktualnosci/>

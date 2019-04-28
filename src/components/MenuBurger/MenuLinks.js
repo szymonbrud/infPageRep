@@ -30,6 +30,10 @@ const MainWrapper = styled.div`
   ${media.tablet`
     font-size: 1.8rem;
   `}
+
+  ${media.desktop`
+    display: none;
+  `}
 `;
 
 
@@ -78,8 +82,8 @@ class MenuLinks extends Component{
             ))
           }
           {
-            circleInMenu.map(element => (
-              <Circle posTop={element.posCirTop} posLeft={element.posCirLeft}/>
+            circleInMenu.map((element, index) => (
+              <Circle key={`circleInMenu${index}`} posTop={element.posCirTop} posLeft={element.posCirLeft}/>
             ))
           }
         </MainWrapper>

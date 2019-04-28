@@ -102,14 +102,11 @@ const Kontakt = () => (
           <WrapperEmail>
             <WrapperEmailSchool>
               {
-                console.log(kontakts)
-              }
-              {
                 kontakts.map(element => (
-                  <>
+                  <div key={element.kogoEmaim}>
                     <EmailUser>{`${element.kogoEmaim}:`}</EmailUser>
                     <EmailName>{element.email}</EmailName>
-                  </> 
+                  </div>
                 ))
               }
             </WrapperEmailSchool>

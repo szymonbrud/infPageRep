@@ -32,6 +32,10 @@ const MainWrapper = styled.div`
     transition: opacity .3s;
     opacity: ${({a}) => a ? 0 : null};
   }
+
+  ${media.desktop`
+    display: none;
+  `}
 `;
 
 const Wrapper = styled.div`
