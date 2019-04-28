@@ -63,7 +63,7 @@ const WrapperForContactToMe = styled.div`
   min-height: 20vh;
 `;
 
-const H1_contactMe = styled.h1`
+const H1ContactMe = styled.h1`
   font-size: 1rem;
   margin-left: 4%;
 
@@ -111,7 +111,7 @@ const Kontakt = () => (
               }
             </WrapperEmailSchool>
             <WrapperForContactToMe>
-              <H1_contactMe>Strona napisana oraz zaprojektowana przez: Szymona Bruda</H1_contactMe>
+              <H1ContactMe>Strona napisana oraz zaprojektowana przez: Szymona Bruda</H1ContactMe>
               <EmailUser>{`${contactToMe[0].what_name}: `}</EmailUser>
               <EmailNameA
                 // href={'https://github.com/szymonqqaz'} 

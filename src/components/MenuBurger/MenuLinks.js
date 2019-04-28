@@ -5,7 +5,7 @@ import NavNames from '../../utils/NavNames';
 
 import { colors } from '../../utils/colors';
 
-import { CircleInMenu, circleInMenu } from '../../utils/circleInMenu';
+import { circleInMenu } from '../../utils/circleInMenu';
 
 import media from '../../utils/media';
 

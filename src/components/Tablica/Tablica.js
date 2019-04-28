@@ -6,7 +6,6 @@ import { colors } from '../../utils/colors';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
-import { timeout } from 'q';
 
 import media from '../../utils/media';
 
