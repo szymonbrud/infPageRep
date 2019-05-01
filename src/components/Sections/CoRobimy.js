@@ -6,7 +6,10 @@ import { StaticQuery, graphql } from "gatsby";
 import { colors } from '../../utils/colors';
 import { fonts } from '../../utils/fonts'; 
 
+import media from '../../utils/media';
+
 import Articles from '../Articles/Articles';
+import ArticlesDesktop from '../Articles/ArticlesDesktop';
 
 const MainWrapper = styled.div`
   width: 100%;
@@ -17,6 +20,12 @@ const H1 = styled.div`
   font-size: 2rem;
   font-weight: ${fonts.medium};
   margin: 8vh 5% 1%;
+  
+  ${media.desktop`
+    font-weight: ${fonts.bold};
+    margin-left: 4%;
+    font-size: 2.1rem;
+  `}
 `;
 
 const P = styled.p`
@@ -44,7 +53,8 @@ const CoRobimy = () => (
         <MainWrapper className={'sec2'}>
           <H1>{coRobimies[0].tytul}</H1>
           <P>{coRobimies[0].wiecej}</P>
-          <Articles></Articles>
+          <Articles/>
+          <ArticlesDesktop/>
         </MainWrapper>
       </>
     )}

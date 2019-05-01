@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { StaticQuery, graphql } from "gatsby";
 
+
 import { colors } from '../../utils/colors';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+
+import media from '../../utils/media';
 
 library.add(faAngleDown);
 
@@ -16,6 +19,10 @@ const MainWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  ${media.desktop`
+    display: none;
+  `}
 `;
 
 const ArticleWrapper = styled.div`
@@ -108,11 +115,11 @@ class Articles extends Component{
             <MainWrapper>
               {
                 coRobimyArtykulies.map((article, index) => (
-                    <ArticleWrapper key={`art ${index}`} className={`art${index}`}>
-                      <H1>{article.tytul}</H1>
-                      <P>{article.wiecej}</P>
-                      <I icon="angle-down" className={`ico${index}`} onClick={() => this.zmien(index)}></I>
-                    </ArticleWrapper>
+                  <ArticleWrapper key={`art ${index}`} className={`art${index}`}>
+                    <H1>{article.tytul}</H1>
+                    <P>{article.wiecej}</P>
+                    <I icon="angle-down" className={`ico${index}`} onClick={() => this.zmien(index)}></I>
+                  </ArticleWrapper>
                 ))
               }
             </MainWrapper>
@@ -121,8 +128,6 @@ class Articles extends Component{
       />
     )
   }
-
-  
 }
 
 export default Articles;
