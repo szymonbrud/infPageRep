@@ -82,8 +82,6 @@ class ArticlesDesktop extends Component{
 
   render(){
 
-    const { positArticle } = this.state;
-
     return(
     <StaticQuery
         query={graphql`
@@ -117,7 +115,7 @@ class ArticlesDesktop extends Component{
               <WrapperArticle>
                 {
                   coRobimyArtykulies.map((element, index) => (
-                    <OneArticle key={element.tytul} positArticle={positArticle}>
+                    <OneArticle key={element.tytul}>
                       <Img bgImage={coRobimyArtykulies[0].obrazek.url}></Img>
                       <H1>{element.tytul}</H1>
                       <P>{element.wiecej}</P>
