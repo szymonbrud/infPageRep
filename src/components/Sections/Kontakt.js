@@ -5,6 +5,7 @@ import { colors } from '../../utils/colors';
 import { fonts } from '../../utils/fonts';
 
 import bg from '../../images/wiadomosci.png';
+import bg2 from '../../images/contact.png';
 
 import { contactToMe } from '../../utils/contactToMe';
 
@@ -29,18 +30,34 @@ const Img = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
+
+  ${media.desktop`
+    background-image: url('${bg2}');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* background-position: mi; */
+    height: 50vh;
+    width: 50%;
+    margin-left: 50%;
+  `}
 `;
 
 const WrapperEmail = styled.div`
+  display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
-  width: 100%;
 `;
 
 const WrapperEmailSchool = styled.div`
   grid-column: 1/3;
   grid-row: 1/2;
   margin-left: 2%;
+
+  ${media.desktop`
+    grid-column: 1/2;
+    height: 20vh;
+    margin: 0;
+  `}
 `;
 
 const EmailUser = styled.p`
@@ -48,6 +65,10 @@ const EmailUser = styled.p`
   padding: 0;
   color: ${colors.yellow};
   font-weight: ${fonts.medium};
+
+  ${media.desktop`
+
+  `}
 `; 
 
 const EmailName = styled.p`
@@ -61,6 +82,12 @@ const WrapperForContactToMe = styled.div`
   grid-row:2/3;
   margin: 7vh 0 0 2%;
   min-height: 20vh;
+
+  ${media.desktop`
+    grid-column: 2/3;
+    grid-row: 1/2;
+    margin: 0;
+  `}
 `;
 
 const H1ContactMe = styled.h1`
@@ -114,7 +141,6 @@ const Kontakt = () => (
               <H1ContactMe>Strona napisana oraz zaprojektowana przez: Szymona Bruda</H1ContactMe>
               <EmailUser>{`${contactToMe[0].what_name}: `}</EmailUser>
               <EmailNameA
-                // href={'https://github.com/szymonqqaz'} 
                 href={contactToMe[0].kontakt}
                 target={'blank'}
               >

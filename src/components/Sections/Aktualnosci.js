@@ -116,8 +116,11 @@ const P = styled.p`
 const I = styled(FontAwesomeIcon)`
   display: block;
 
+  transform: rotate(${({left}) => left ? 90 : -90}deg);
+  transform: rotate(${({toDown}) => toDown ? 0 : null}deg);
+
   ${media.desktop`
-    display: none;
+    display: block;
   `};
 `;
 
@@ -128,13 +131,21 @@ const CenterBox = styled.div`
   justify-content: center;
   align-items: center;
   margin: -1.5vh 0 8vh 1px;
+
+  ${media.desktop`
+    display: none;
+  `}
 `;
 
 const BoxForArrow = styled.div`
   width: 100%;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
+
+  ${media.desktop`
+    display: flex;
+  `}
 `;
 
 const Arrow = styled.div`
@@ -142,11 +153,34 @@ const Arrow = styled.div`
   height: 5vh;
   background: ${colors.yellow};
   border-radius: 50px;
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
   cursor: pointer;
-  :hover{
-    
+
+  :first-child{
+    margin-right: 10px;
   }
+
+  ::before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    opacity: 0;
+    transition: opacity .2s;
+  }
+
+  :hover::before{
+    opacity: 1;
+  }
+
 `;
 
 class Aktualnosci extends Component{
@@ -211,8 +245,12 @@ class Aktualnosci extends Component{
                 <I icon="angle-down"></I>
               </CenterBox>
               <BoxForArrow>
-                <Arrow onClick={() => this.toRight()}></Arrow>
-                <Arrow onClick={() => this.toLeft(poszczegolneAktualnoscis.length)}></Arrow>
+                <Arrow onClick={() => this.toRight()}>
+                  <I left icon="angle-down"></I>
+                </Arrow>
+                <Arrow onClick={() => this.toLeft(poszczegolneAktualnoscis.length)}>
+                  <I icon="angle-down"></I>                  
+                </Arrow>
               </BoxForArrow>
             </MainWrapper>
           </>
