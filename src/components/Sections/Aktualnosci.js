@@ -23,6 +23,7 @@ const WrapperForInf = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
+  max-width: 100%;
 
   ${media.desktop`
     grid-template-columns: auto;
@@ -130,7 +131,7 @@ const CenterBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: -1.5vh 0 8vh 1px;
+  margin: -1.5vh 0 8vh 0px;
 
   ${media.desktop`
     display: none;

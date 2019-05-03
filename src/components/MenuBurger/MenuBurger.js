@@ -72,7 +72,7 @@ const OneElement = styled.div`
 const H1 = styled.h1`
   position: relative;
   color: ${colors.yellow};
-  font-size: 1.7rem;
+  font-size: ${({theme}) => theme.size.m};
   font-weight: ${fonts.medium}; 
   z-index: 2000;
   margin-right: 10%;

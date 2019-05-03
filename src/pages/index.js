@@ -2,7 +2,6 @@ import React, { Component } from "react"
 
 import styled from 'styled-components';
 import { scrollTo } from 'scroll-js';
-import Layout from '../utils/Layout';
 
 import MenuBurger from '../components/MenuBurger/MenuBurger'
 import Start from '../components/Sections/Start'
@@ -13,22 +12,11 @@ import Kontakt from "../components/Sections/Kontakt";
 import Footer from '../components/Sections/Footer';
 import MenuDesktop from '../components/MenuDesktop/MenuDesktop';
 
+
 import getHeightSec from '../functions/getHeightSec';
 
 import media from '../utils/media';
-
-const MainMainWrapper = styled.div`
-  @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
-  font-family: 'Roboto', sans-serif;
-  position: absolute;
-  width: calc(100% + 7px);
-  top: 0;
-  left: -8px;
-
-  ${media.tablet`
-    font-size: 24px;
-  `}
-`;
+import MainConfiguration from '../styles/MainConfiguration';
 
 const Landscape = styled.div`
   display: none;
@@ -158,31 +146,29 @@ class IndexPage extends Component {
     
     return(
       <>
-        <Layout>
-          <MainMainWrapper>
-            <MenuBurger 
-              visibleMenu={visibleMenu}
-              Parent={this.takeVisibleMenuLinks}
-              visibleMenuLinks={visibleMenuLinksApp}
-              VisibleToParent={this.changeParentVisible}
-            />
-            <MenuLinks
-              visibleMenuLinks={visibleMenuLinks}
-              clic={this.menuLinksCliced}
-            />
-            <MenuDesktop 
-              whereWeAreHere={whereWeAreHere}
-              clicedMenu={this.MenuDesktopCliced}
-              visibleMenu={visibleMenu}
-            />
-            <Start/>
-            <CoRobimy/>
-            <Aktualnosci/>
-            <Kontakt/>
-            <Footer/>
-          </MainMainWrapper>
+        <MainConfiguration>
+          <MenuBurger 
+            visibleMenu={visibleMenu}
+            Parent={this.takeVisibleMenuLinks}
+            visibleMenuLinks={visibleMenuLinksApp}
+            VisibleToParent={this.changeParentVisible}
+          />
+          <MenuLinks
+            visibleMenuLinks={visibleMenuLinks}
+            clic={this.menuLinksCliced}
+          />
+          <MenuDesktop 
+            whereWeAreHere={whereWeAreHere}
+            clicedMenu={this.MenuDesktopCliced}
+            visibleMenu={visibleMenu}
+          />
+          <Start/>
+          <CoRobimy/>
+          <Aktualnosci/>
+          <Kontakt/>
+          <Footer/>
           <Landscape>przekręć telefon</Landscape>
-        </Layout>
+        </MainConfiguration>
       </>
     )
   }

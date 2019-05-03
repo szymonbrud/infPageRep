@@ -55,7 +55,7 @@ const I = styled(FontAwesomeIcon)`
   background: #fff;
   color: ${colors.yellow};
   font-weight: 500;
-  font-size: 1.6rem;
+  font-size: 2.5rem;
   position: absolute;
   bottom: 0;
   right: 3%;

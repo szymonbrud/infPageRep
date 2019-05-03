@@ -61,7 +61,7 @@ const WrapperEmailSchool = styled.div`
 `;
 
 const EmailUser = styled.p`
-  margin: 4% 0 0 4%;
+  margin: 4% 0 0 2%;
   padding: 0;
   color: ${colors.yellow};
   font-weight: ${fonts.medium};
@@ -72,7 +72,7 @@ const EmailUser = styled.p`
 `; 
 
 const EmailName = styled.p`
-  margin: 0 0 0 4%;
+  margin: 0 0 0 2%;
   padding: 0;
   font-weight: ${fonts.regular};
 `;
@@ -91,8 +91,8 @@ const WrapperForContactToMe = styled.div`
 `;
 
 const H1ContactMe = styled.h1`
-  font-size: 1rem;
-  margin-left: 4%;
+  font-size: ${({theme}) => theme.size.xs};;
+  margin-left: 2%;
 
   ${media.tablet`
     font-size: 2rem;
@@ -100,7 +100,7 @@ const H1ContactMe = styled.h1`
 `; 
 
 const EmailNameA = styled.a`
-  margin: 0 0 0 4%;
+  margin: 0 0 0 2%;
   padding: 0;
   font-weight: ${fonts.regular};
   text-decoration: none;

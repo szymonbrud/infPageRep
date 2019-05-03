@@ -17,9 +17,9 @@ const MainWrapper = styled.div`
 
 const H1 = styled.div`
   color: ${colors.yellow};
-  font-size: 2rem;
+  font-size: ${({theme}) => theme.size.x};;
   font-weight: ${fonts.medium};
-  margin: 8vh 5% 1%;
+  margin: 8vh 4% 1%;
   
   ${media.desktop`
     font-weight: ${fonts.bold};

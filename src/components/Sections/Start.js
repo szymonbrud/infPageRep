@@ -44,9 +44,13 @@ const BoxTitle = styled.div`
 
 const H1 = styled.h1`
   color: ${colors.yellow};
-  font-size: 2rem;
+  font-size: ${({theme}) => theme.size.m};
   font-weight: ${fonts.medium};
   margin: 0 5% 1%;
+
+  ${media.phone`
+    font-size: ${({theme}) => theme.size.x};
+  `}
 
   ${media.tablet`
     font-size: 3rem;
@@ -61,6 +65,11 @@ const P = styled.p`
   font-weight: ${fonts.regular};
   width: 80%;
   margin: 0 10%;
+  font-size: ${({theme}) => theme.size.xs};
+
+  ${media.phone`
+    font-size: ${({theme}) => theme.size.s};
+  `}
 `;
 
 const Img = styled.div`
@@ -100,12 +109,13 @@ const Logo = styled.div`
 const Box = styled(YellowRadiusBox)`
   width: 50%;
   height: 5vh;
-  font-size: .9rem;
+  font-size: ${({theme}) => theme.size.xs};
   margin: 2% 0 0 40%;
+  border-radius: 50px;
+
 
   ${media.tablet`
     font-size: 1.3rem;
-    border-radius: 50px;
   `}
 
   ${media.desktop`
@@ -117,7 +127,7 @@ const Box = styled(YellowRadiusBox)`
 const Box2 = styled(YellowRadiusBox)`
   width: 80%;
   height: 7vh;
-  font-size: .8rem;
+  font-size: 1.3rem;
   margin: 2% 0 0 15%;
   grid-column: 1/3;
   grid-row: 4/5;
@@ -157,7 +167,6 @@ const Start = () => (
             <P>{
               stronaGlownas[0].napis
             }</P>
-            <Box>AKTUALNOŚCI</Box>
           </BoxTitle>
           <Logo/>
           <Box2>{stronaGlownas[0].kiedyNapis}</Box2>

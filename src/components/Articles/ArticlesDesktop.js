@@ -42,7 +42,6 @@ const OneArticle = styled.div`
   flex-direction: column;
   margin: 1%;
   overflow: hidden;
-  /* transform: translateX(-54vw);  */
 `;
 
 const Img = styled.div`

@@ -11,18 +11,16 @@ const MainWrapper = styled.div`
   min-height: 15vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center ;
   background: ${colors.yellow};
   flex-direction: column;
-
-  
 `;
 
 const P1 = styled.p`
-  margin: 5% 0 0 2%;
+  margin: 5% 0 0 0%;
   color: #000;
-  width: 98%;
-  font-size: 1.1rem;
+  width: 100%;
+  font-size: ${({theme}) => theme.size.s};
   font-weight: ${fonts.medium};
   text-align: center;
 
@@ -37,7 +35,7 @@ const P2 = styled.p`
   font-weight: ${fonts.medium};
 
   ${media.tablet`
-    font-size: 1.8rem;
+    font-size: ${({theme}) => theme.size.xs};
   `}
 `;
 

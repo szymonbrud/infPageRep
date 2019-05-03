@@ -41,6 +41,7 @@ const OneElement = styled.p`
   position: relative;
   margin: 0 0 10vh 10%;
   padding: 0;
+  font-size: ${({theme}) => theme.size.m};
 
   ::after{
     content: '';
