@@ -1,6 +1,6 @@
 export default[
-  'home',
-  'co robimy',
-  'aktualności',
-  'kontakt',
+  'Start',
+  'Co robimy',
+  'Aktualności',
+  'Kontakt',
 ];

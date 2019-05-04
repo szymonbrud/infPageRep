@@ -17,21 +17,31 @@ const MainWrapper = styled.div`
 
 const H1 = styled.div`
   color: ${colors.yellow};
-  font-size: ${({theme}) => theme.size.x};;
-  font-weight: ${fonts.medium};
+  font-size: ${({theme}) => theme.size.x};
+  font-weight: ${fonts.bold};
   margin: 8vh 4% 1%;
-  
+
   ${media.desktop`
     font-weight: ${fonts.bold};
     margin-left: 4%;
-    font-size: 2.1rem;
+    font-size: 3rem;
   `}
+
+  ${media.bigDesktop`
+    font-size: 4rem;
+  `}
+
 `;
 
 const P = styled.p`
   font-weight: ${fonts.regular};
   width: 92%;
   margin: 0 4%;
+  font-size: 2rem;
+
+  ${media.bigDesktop`
+    font-size: 2.8rem;
+  `}
 `;
 
 const CoRobimy = () => (

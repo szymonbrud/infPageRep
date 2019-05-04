@@ -53,7 +53,11 @@ const H1 = styled.h1`
   `}
 
   ${media.tablet`
-    font-size: 3rem;
+    font-size: 48px;
+  `}
+
+  ${media.bigDesktop`
+    font-size: 5.4rem;
   `}
 `;
 
@@ -69,6 +73,14 @@ const P = styled.p`
 
   ${media.phone`
     font-size: ${({theme}) => theme.size.s};
+  `}
+
+  ${media.tablet`
+    font-size: 24px;
+  `}
+
+  ${media.bigDesktop`
+    font-size: 2.8rem;
   `}
 `;
 
@@ -113,14 +125,17 @@ const Box = styled(YellowRadiusBox)`
   margin: 2% 0 0 40%;
   border-radius: 50px;
 
+  display: none;
 
-  ${media.tablet`
-    font-size: 1.3rem;
-  `}
-
+  
   ${media.desktop`
     height: 6vmin;
     width: 40%;
+    display: flex;
+  `}
+
+  ${media.bigDesktop`
+    font-size: 2.2rem;
   `}
 `;
 
@@ -136,8 +151,8 @@ const Box2 = styled(YellowRadiusBox)`
   ${media.tablet`
     width: 60%;
     height: 5vh;
-    font-size: 1.2rem;
     margin: 2% 0 0 35%;
+    font-size: 18px;
   `}
 
   ${media.desktop`
@@ -167,6 +182,7 @@ const Start = () => (
             <P>{
               stronaGlownas[0].napis
             }</P>
+            <Box>AKTULANOŚCI</Box>
           </BoxTitle>
           <Logo/>
           <Box2>{stronaGlownas[0].kiedyNapis}</Box2>

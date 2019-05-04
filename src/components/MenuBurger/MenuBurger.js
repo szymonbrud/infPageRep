@@ -80,6 +80,7 @@ const H1 = styled.h1`
 
   ${media.tablet`
     margin-right: 45%;
+    font-size: 36px;
   `}
   
   transition: transform .2s .3s;

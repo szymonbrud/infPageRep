@@ -98,9 +98,17 @@ const H1 = styled.h1`
   align-items: center;
   color: ${colors.yellow};
 
+  ${media.tablet`
+    font-size: 36px;
+  `}
+
   ${media.desktop`
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin: 0 0 0 0%;
+  `}
+
+  ${media.bigDesktop`
+    font-size: 3.2rem;
   `}
 `;
 
@@ -109,12 +117,16 @@ const P = styled.p`
   margin: 2% 0 0 8%;
 
   ${media.desktop`
-    font-size: 1.3rem;
+    font-size: 1.8rem;
     margin: 0 0 0 0%;
+  `}
+
+  ${media.bigDesktop`
+    font-size: 2.4rem;
   `}
 `;
 
-const I = styled(FontAwesomeIcon)`
+const   I = styled(FontAwesomeIcon)`
   display: block;
 
   transform: rotate(${({left}) => left ? 90 : -90}deg);
@@ -123,6 +135,14 @@ const I = styled(FontAwesomeIcon)`
   ${media.desktop`
     display: block;
   `};
+
+  ${media.desktop`
+    font-size: 1.5rem;
+  `}
+
+  ${media.bigDesktop`
+    font-size: 2rem;
+  `}
 `;
 
 const CenterBox = styled.div`
@@ -243,7 +263,7 @@ class Aktualnosci extends Component{
                 }
               </WrapperForInf>
               <CenterBox>
-                <I icon="angle-down"></I>
+                <I toDown icon="angle-down"></I>
               </CenterBox>
               <BoxForArrow>
                 <Arrow onClick={() => this.toRight()}>

@@ -114,8 +114,6 @@ class IndexPage extends Component {
     console.log(`wys: ${window.pageYOffset} gdzie: ${whereWeAreHere}`);
   }
 
-
-
   takeVisibleMenuLinks = (a) => {
     this.setState({visibleMenuLinks: a});
   }
@@ -156,6 +154,7 @@ class IndexPage extends Component {
           <MenuLinks
             visibleMenuLinks={visibleMenuLinks}
             clic={this.menuLinksCliced}
+            whereWeAreHere={whereWeAreHere}
           />
           <MenuDesktop 
             whereWeAreHere={whereWeAreHere}

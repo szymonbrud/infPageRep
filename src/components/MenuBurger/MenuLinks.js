@@ -50,7 +50,7 @@ const OneElement = styled.p`
     width: 50vw;
     top: 110%;
     left: 0;
-    background: black;
+    background: ${({whereWeAreHere}) => whereWeAreHere ? '#FFC107' : 'black'};
   }
 `;
 
@@ -72,14 +72,14 @@ class MenuLinks extends Component{
 
   render(){
 
-    const { visibleMenuLinks } = this.props;
+    const { visibleMenuLinks, whereWeAreHere } = this.props;
     
     return(
       <>
         <MainWrapper visibleMenuLinks={visibleMenuLinks}>
           {
             NavNames.map((element, index) => (
-              <OneElement key={`menu${index}`} onClick={() => this.toParent(index)}>{element}</OneElement>
+              <OneElement key={`menu${index}`} onClick={() => this.toParent(index)} whereWeAreHere={index + 1 === whereWeAreHere ? true : false}>{element}</OneElement>
             ))
           }
           {

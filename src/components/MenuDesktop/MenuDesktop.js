@@ -47,7 +47,7 @@ const WrapperElement = styled.div`
 `;
 
 const OneElemnt = styled.p`
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: ${fonts.medium};
   position: relative;
   cursor: pointer;
@@ -81,19 +81,27 @@ const OneElemnt = styled.p`
   :hover::before{
     transform: scaleX(0);
   }
+
+  ${media.bigDesktop`
+    font-size: 2rem;
+  `}
 `;
 
 const H1 = styled.h1`
   margin: 0;
   display: block;
   color: ${colors.yellow};
-  font-size: 1.7rem;
+  font-size: 2rem;
   font-weight: ${fonts.medium}; 
   position: relative;
   left: 5%;
 
   transition: transform .2s .3s;
   transform: translateX(${({visibleMenu}) => visibleMenu ? 0 : -200}%);
+
+  ${media.bigDesktop`
+    font-size: 2.6rem;
+  `}
 `;
 
 const B = styled.b`

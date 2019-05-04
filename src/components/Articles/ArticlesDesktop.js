@@ -57,6 +57,14 @@ const Img = styled.div`
 const H1 = styled.h1`
   margin: 0 0 0 5%;
   font-size: 1.1rem;
+
+  ${media.desktop`
+    font-size: 1.5rem;
+  `}
+
+  ${media.bigDesktop`
+    font-size: 2rem;
+  `}
 `;
 
 const P = styled.p`
@@ -64,23 +72,19 @@ const P = styled.p`
   margin: 5% 0 0 5%;
   width: 90%;
   padding-bottom: 10%;
-  /* margin-bottom: 10%; */
+
+  ${media.desktop`
+    font-size: 1.2rem;
+  `}
+
+  ${media.bigDesktop`
+    font-size: 1.8rem;
+  `}
 `;
 
 
 class ArticlesDesktop extends Component{
-
-  /* (22 vw za każdy jeden ) */
-  /* (20% + 2% ) * 5 */
-  /* 55max */
-  /* 274% */
-  /* 1/5 z 100vw */
-
-
-
-
   render(){
-
     return(
     <StaticQuery
         query={graphql`

@@ -8,34 +8,35 @@ import media from '../../utils/media';
 
 const MainWrapper = styled.div`
   width: 100%;
-  min-height: 15vh;
   display: flex;
   align-items: center;
   justify-content: center ;
   background: ${colors.yellow};
   flex-direction: column;
+
 `;
 
 const P1 = styled.p`
-  margin: 5% 0 0 0%;
+  margin: 30px 0 0 0%;
   color: #000;
   width: 100%;
   font-size: ${({theme}) => theme.size.s};
   font-weight: ${fonts.medium};
   text-align: center;
 
-  ${media.tablet`
-    font-size: 1.4rem;
+  ${media.bigDesktop`
+    font-size: ${({theme}) => theme.size.m};
   `}
 `;
 
 const P2 = styled.p`
-  margin: 2% 0 5% 0;
+  margin: 20px 0 30px 0;
   color: #fff;
+  font-size: ${({theme}) => theme.size.s};
   font-weight: ${fonts.medium};
 
-  ${media.tablet`
-    font-size: ${({theme}) => theme.size.xs};
+  ${media.bigDesktop`
+    font-size: ${({theme}) => theme.size.m};
   `}
 `;
 

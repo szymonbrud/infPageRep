@@ -26,9 +26,7 @@ const Wrapper = styled.div`
   display: none;
   align-items: center;
   justify-content: center;
-
-  /* transform: translateY(); */
-
+  
   ${media.desktop`
     display: flex;
   `}

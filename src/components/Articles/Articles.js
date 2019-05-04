@@ -44,6 +44,10 @@ const ArticleWrapper = styled.div`
 const H1 = styled.h1`
   margin: 2% 0 0 2%;
   font-size: 1.4rem;
+
+  ${media.tablet`
+    font-size: 24px;
+  `}
 `; 
 
 const P = styled.p`
