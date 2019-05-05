@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import AktualnosciTitle from'../AktualnosciTitle/AktualnosciTitle';
-
 import media from '../../utils/media';
-
 import { StaticQuery, graphql } from "gatsby";
 import { colors } from '../../utils/colors';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { library } from '@fortawesome/fontawesome-svg-core';
 
 library.add(faAngleDown);
-
 
 const MainWrapper = styled.div`
   width: 100%;
@@ -126,7 +123,7 @@ const P = styled.p`
   `}
 `;
 
-const   I = styled(FontAwesomeIcon)`
+const I = styled(FontAwesomeIcon)`
   display: block;
 
   transform: rotate(${({left}) => left ? 90 : -90}deg);

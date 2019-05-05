@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-
 import { colors } from '../../utils/colors';
 import { fonts } from '../../utils/fonts';
-
 import media from '../../utils/media';
 
 const MainWrapper = styled.div`

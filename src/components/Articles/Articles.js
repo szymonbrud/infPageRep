@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { StaticQuery, graphql } from "gatsby";
-
-
 import { colors } from '../../utils/colors';
+import media from '../../utils/media';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
-
-import media from '../../utils/media';
 
 library.add(faAngleDown);
 
@@ -54,7 +51,6 @@ const P = styled.p`
   margin: 2% 2%;
 `;
 
-
 const I = styled(FontAwesomeIcon)`
   background: #fff;
   color: ${colors.yellow};
@@ -69,7 +65,6 @@ const I = styled(FontAwesomeIcon)`
 `;
 
 class Articles extends Component{
-
   constructor(){
     super();
 

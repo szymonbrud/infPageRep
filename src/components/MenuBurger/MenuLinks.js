@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-
-import NavNames from '../../utils/NavNames';
-
+import NavNames from '../../settings/NavNames';
 import { colors } from '../../utils/colors';
-
-import { circleInMenu } from '../../utils/circleInMenu';
-
+import { circleInMenu } from '../../settings/circleInMenu';
 import media from '../../utils/media';
 
 const MainWrapper = styled.div`

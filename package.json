@@ -23,7 +23,8 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
     "scroll-js": "^2.2.1",
-    "styled-components": "^4.2.0"
+    "styled-components": "^4.2.0",
+    "ftp": "^0.3.10"
   },
   "devDependencies": {
     "prettier": "^1.17.0"
@@ -38,6 +39,7 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
+    "ftp-deploy": "node deploy.js",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "repository": {

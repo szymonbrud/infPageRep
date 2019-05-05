@@ -1,13 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-
 import { StaticQuery, graphql } from "gatsby";
-
 import { colors } from '../../utils/colors';
 import { fonts } from '../../utils/fonts'; 
-
 import media from '../../utils/media';
-
 import Articles from '../Articles/Articles';
 import ArticlesDesktop from '../Articles/ArticlesDesktop';
 
@@ -30,7 +26,6 @@ const H1 = styled.div`
   ${media.bigDesktop`
     font-size: 4rem;
   `}
-
 `;
 
 const P = styled.p`

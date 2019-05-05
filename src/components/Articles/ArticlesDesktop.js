@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { StaticQuery, graphql } from "gatsby";
-
 import { colors } from '../../utils/colors';
-
 import media from '../../utils/media';
 
 const MainWrapper = styled.div`
@@ -125,7 +123,6 @@ class ArticlesDesktop extends Component{
                     </OneArticle>
                   ))
                 }
-                
               </WrapperArticle>
             </MainWrapper>
           </>
@@ -134,6 +131,5 @@ class ArticlesDesktop extends Component{
     )
   }
 }
-
 
 export default ArticlesDesktop;

@@ -1,18 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { StaticQuery, graphql } from "gatsby";
-
 import YellowRadiusBox from '../yellowRadiusBox/yellowRadiusBox';
-
 import bg from '../../images/bgProfessor.png';
 import logo from '../../images/logo.png';
 import bgDesktop from '../../images/bgProfessor.png';
-
 import { colors } from '../../utils/colors';
 import { fonts } from '../../utils/fonts';
-
 import media from '../../utils/media';
-
 import Tablica from '../Tablica/Tablica';
 
 const MainWrapper = styled.div`
@@ -142,7 +137,7 @@ const Box = styled(YellowRadiusBox)`
 const Box2 = styled(YellowRadiusBox)`
   width: 80%;
   height: 7vh;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   margin: 2% 0 0 15%;
   grid-column: 1/3;
   grid-row: 4/5;

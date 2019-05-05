@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-
 import { fonts } from '../../utils/fonts';
 import { colors } from '../../utils/colors';
- 
-import NavNames from '../../utils/NavNames';
+import NavNames from '../../settings/NavNames';
 import media from '../../utils/media';
 
 const MainWrapper = styled.div`
@@ -29,7 +27,6 @@ const MainWrapper = styled.div`
     position: absolute;
     background: #fff;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
     opacity: ${({visibleMenu}) => visibleMenu ? '1' : '0'};
     transition: opacity .2s;
   }

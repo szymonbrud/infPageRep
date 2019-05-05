@@ -1,8 +1,5 @@
 import React, { Component } from "react"
-
-import styled from 'styled-components';
 import { scrollTo } from 'scroll-js';
-
 import MenuBurger from '../components/MenuBurger/MenuBurger'
 import Start from '../components/Sections/Start'
 import CoRobimy from '../components/Sections/CoRobimy';
@@ -11,35 +8,9 @@ import Aktualnosci from '../components/Sections/Aktualnosci';
 import Kontakt from "../components/Sections/Kontakt";
 import Footer from '../components/Sections/Footer';
 import MenuDesktop from '../components/MenuDesktop/MenuDesktop';
-
-
 import getHeightSec from '../functions/getHeightSec';
-
-import media from '../utils/media';
 import MainConfiguration from '../styles/MainConfiguration';
-
-const Landscape = styled.div`
-  display: none;
-
-  @media (orientation: landscape){
-    position: fixed;
-    background: grey;
-    z-index: 9000;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100%;
-    font-size: 2rem;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }   
-
-  ${media.desktop`
-    display: none;
-  `}
-`;
+import Landscape from '../components/Landscape/Landscape';
 
 class IndexPage extends Component {
 
@@ -110,8 +81,6 @@ class IndexPage extends Component {
     } else {
       if(whereWeAreHere !== 4) this.setState({whereWeAreHere: 4});
     }
-
-    console.log(`wys: ${window.pageYOffset} gdzie: ${whereWeAreHere}`);
   }
 
   takeVisibleMenuLinks = (a) => {
@@ -135,7 +104,6 @@ class IndexPage extends Component {
 
   changeParentVisible = (a) => {
     this.setState({visibleMenuLinksApp: a});
-    
   }
 
   render(){

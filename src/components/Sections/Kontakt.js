@@ -3,12 +3,9 @@ import styled from 'styled-components';
 import { StaticQuery, graphql } from "gatsby";
 import { colors } from '../../utils/colors';
 import { fonts } from '../../utils/fonts';
-
 import bg from '../../images/wiadomosci.png';
 import bg2 from '../../images/contact.png';
-
-import { contactToMe } from '../../utils/contactToMe';
-
+import { contactToMe } from '../../settings/contactToMe';
 import media from '../../utils/media';
 
 const MainWrapper = styled.div`
@@ -81,10 +78,6 @@ const EmailUser = styled.p`
   padding: 0;
   color: ${colors.yellow};
   font-weight: ${fonts.medium};
-
-  ${media.desktop`
-
-  `}
 `; 
 
 const EmailName = styled.p`

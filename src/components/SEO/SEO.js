@@ -5,6 +5,7 @@ const SEO = () => (
   <Helmet>
     <html lang="pl" />
     <title>Kółko informatyczne</title>
+    <meta name='description' content='Kółko informatyczne w szkole podstawowej 49 w krakowie'/>
   </Helmet>
 );
 

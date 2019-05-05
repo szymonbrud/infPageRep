@@ -19,7 +19,7 @@ const H1 = styled.h1`
 `;
 
 const P = styled.p`
-  margin: 1% 0 0 5%;
+  margin: 0 0 0 5%;
 
   ${media.desktop`
     font-size: 2rem;
