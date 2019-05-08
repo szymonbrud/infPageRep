@@ -1,4 +1,4 @@
-# Information circle - page
+# IT club - page
 This is our school's project, based on Gatsby and styled-components. It will contain information about our club and news.
 
 # How to run?
