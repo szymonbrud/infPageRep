@@ -1,5 +1,5 @@
 # IT club - page
-This is page's for my school, based on Gatsby, styled-components and graphCMS. It will contain information about our IT club and news
+This is page's for my school, based on Gatsby, graphCMS, styled-components and circleCi. It will contain information about our IT club and news
 
 
 
