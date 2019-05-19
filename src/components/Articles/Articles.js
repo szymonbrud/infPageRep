@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { StaticQuery, graphql } from "gatsby";
-import { colors } from '../../utils/colors';
-import media from '../../utils/media';
+import { StaticQuery, graphql } from 'gatsby';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import media from '../../utils/media';
+import { colors } from '../../utils/colors';
 
 library.add(faAngleDown);
 
@@ -30,10 +30,9 @@ const ArticleWrapper = styled.div`
   overflow: hidden;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-  max-height: 20vh;
-  transition: max-height .5s;
+  transition: height 0.5s;
 
-  :last-child{
+  :last-child {
     margin-bottom: 5vh;
   }
 `;
@@ -45,7 +44,7 @@ const H1 = styled.h1`
   ${media.tablet`
     font-size: 24px;
   `}
-`; 
+`;
 
 const P = styled.p`
   margin: 2% 2%;
@@ -61,46 +60,63 @@ const I = styled(FontAwesomeIcon)`
   right: 3%;
   padding-left: 1%;
 
-  transition: transform .5s .2s;
+  transition: transform 0.5s;
 `;
 
-class Articles extends Component{
-  constructor(){
+class Articles extends Component {
+  constructor() {
     super();
 
     this.state = {
-      obj: [],
-      icons: [],
+      ArticleState: [],
+      icons: []
+    };
+  }
+
+  componentDidMount() {
+    this.getAndSetHeightArt();
+  }
+
+  getAndSetHeightArt = () => {
+    const Art = [];
+    const icons = [];
+
+    for (let i = 0; i >= -1; i++) {
+      if (document.querySelector(`.art${i}`) === null) {
+        break;
+      } else {
+        Art[i] = document.querySelector(`.art${i}`);
+        icons[i] = document.querySelector(`.ico${i}`);
+        if (Art[i].offsetHeight > 160) {
+          Art[i].style.height = '160px';
+        } else {
+          icons[i].style.display = 'none';
+        }
+      }
     }
-  }
+    this.setState({ ArticleState: Art, icons });
+  };
 
-  zmien = (i) => {
-    let zmienna = [];
-    zmienna = this.state.obj;
-    zmienna[i] = document.querySelector(`.art${i}`);
-    this.setState({obj: zmienna});
+  changeArt = i => {
+    const { ArticleState, icons } = this.state;
+    console.log(icons);
 
-    let icoZmienna = [];
-    icoZmienna = this.state.icons;
-    icoZmienna[i] = document.querySelector(`.ico${i}`);
-    this.setState({icons: icoZmienna});
-
-    if(zmienna[i].style.maxHeight === '100vh'){
-      zmienna[i].style.maxHeight = 20 + 'vh';
-      icoZmienna[i].style.transform = "rotate(0deg)";
+    if (ArticleState[i].style.height === '160px') {
+      ArticleState[i].style.height = 'auto';
+      icons[i].style.transform = 'rotate(180deg)';
     } else {
-      zmienna[i].style.maxHeight = 100 + 'vh';
-      icoZmienna[i].style.transform = "rotate(180deg)";
-    }  
-  }
+      ArticleState[i].style.height = '160px';
+      icons[i].style.transform = 'rotate(0deg)';
+    }
+  };
 
-  render(){
-    return(
-    <StaticQuery
+  render() {
+    return (
+      <StaticQuery
         query={graphql`
-          query{
-            inf{
-              coRobimyArtykulies{
+          query {
+            inf {
+              coRobimyArtykulies {
                 id
                 tytul
                 wiecej
@@ -108,24 +124,25 @@ class Articles extends Component{
             }
           }
         `}
-        
-        render={({inf : {coRobimyArtykulies}}) => (
+        render={({ inf: { coRobimyArtykulies } }) => (
           <>
             <MainWrapper>
-              {
-                coRobimyArtykulies.map((article, index) => (
-                  <ArticleWrapper key={`art ${index}`} className={`art${index}`}>
-                    <H1>{article.tytul}</H1>
-                    <P>{article.wiecej}</P>
-                    <I icon="angle-down" className={`ico${index}`} onClick={() => this.zmien(index)}></I>
-                  </ArticleWrapper>
-                ))
-              }
+              {coRobimyArtykulies.map((article, index) => (
+                <ArticleWrapper key={`art ${index}`} className={`art${index}`}>
+                  <H1>{article.tytul}</H1>
+                  <P>{article.wiecej}</P>
+                  <I
+                    icon="angle-down"
+                    className={`ico${index}`}
+                    onClick={() => this.changeArt(index)}
+                  />
+                </ArticleWrapper>
+              ))}
             </MainWrapper>
           </>
         )}
       />
-    )
+    );
   }
 }
 
