@@ -1,5 +1,7 @@
-# Information circle - page
-This is our school's project, based on Gatsby and styled-components. It will contain information about our club and news.
+# IT club - page
+This is page's for my school, based on Gatsby, graphCMS, styled-components and circleCi. It will contain information about our IT club and news
+
+
 
 # How to run?
 1. `npm install`
