@@ -13,9 +13,11 @@ library.add(faAngleDown);
 const MainWrapper = styled.div`
   width: 100%;
   min-height: 20vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+
+  ${media.tablet`
+    grid-template-columns: 1fr 1fr;
+  `}
 
   ${media.desktop`
     display: none;
@@ -30,11 +32,15 @@ const ArticleWrapper = styled.div`
   overflow: hidden;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-  transition: height 0.5s;
+  justify-self: center;
 
   :last-child {
     margin-bottom: 5vh;
   }
+
+  ${media.tablet`
+    margin-top: 3vh;
+  `}
 `;
 
 const H1 = styled.h1`
@@ -128,7 +134,10 @@ class Articles extends Component {
           <>
             <MainWrapper>
               {coRobimyArtykulies.map((article, index) => (
-                <ArticleWrapper key={`art ${index}`} className={`art${index}`}>
+                <ArticleWrapper
+                  key={`art ${coRobimyArtykulies.id}`}
+                  className={`art${index}`}
+                >
                   <H1>{article.tytul}</H1>
                   <P>{article.wiecej}</P>
                   <I

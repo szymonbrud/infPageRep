@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import AktualnosciTitle from'../AktualnosciTitle/AktualnosciTitle';
-import media from '../../utils/media';
-import { StaticQuery, graphql } from "gatsby";
-import { colors } from '../../utils/colors';
+import { StaticQuery, graphql } from 'gatsby';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
+import { colors } from '../../utils/colors';
+import media from '../../utils/media';
+import AktualnosciTitle from '../AktualnosciTitle/AktualnosciTitle';
 
 library.add(faAngleDown);
 
@@ -34,16 +34,16 @@ const OneInf = styled.div`
   position: relative;
   min-height: 20vh;
 
-  grid-column: ${({posit}) => posit % 2 === 0 ? '1/2' : '2/3'};
-  grid-row: ${({rowNr}) => rowNr};
+  grid-column: ${({ posit }) => (posit % 2 === 0 ? '1/2' : '2/3')};
+  grid-row: ${({ rowNr }) => rowNr};
 
   ${media.desktop`
-    grid-column: ${({rowNr}) => rowNr};
-    grid-row: ${({posit}) => posit % 2 === 0 ? '1/2' : '2/3'};
+    grid-column: ${({ rowNr }) => rowNr};
+    grid-row: ${({ posit }) => (posit % 2 === 0 ? '1/2' : '2/3')};
     width: 30vw;
     padding-bottom: 5%;
     padding-top: 5%;
-    transform: translateX(${({posLeft}) => -posLeft}vw);
+    transform: translateX(${({ posLeft }) => -posLeft}vw);
     transition: transform .2s;
 
     :first-child{
@@ -51,37 +51,37 @@ const OneInf = styled.div`
     }
   `}
 
-  ::after{
+  ::after {
     content: '';
     display: block;
     position: absolute;
     top: 0;
-    left: ${({posit}) => posit % 2 === 0 ? 100 : 0}%;
+    left: ${({ posit }) => (posit % 2 === 0 ? 100 : 0)}%;
     height: 100%;
     width: 2px;
     background: black;
 
     ${media.desktop`
-      width: 100%;
+      width: 120%;
       height: 2px;
       left: 0;
-      top: ${({posit}) => posit % 2 === 0 ? 100 : 0}%;
+      top: ${({ posit }) => (posit % 2 === 0 ? 100 : 0)}%;
     `}
   }
 
-  ::before{
+  ::before {
     content: '';
     display: block;
     position: absolute;
-    top: calc(5vh - 2vh/2);
-    left: calc(${({posit}) => posit % 2 === 0 ? 100 : 0}% - 2vh/2 + 1px);
+    top: calc(5vh - 2vh / 2);
+    left: calc(${({ posit }) => (posit % 2 === 0 ? 100 : 0)}% - 2vh / 2 + 1px);
     height: 2vh;
     width: 2vh;
     border-radius: 50px;
     background: black;
 
     ${media.desktop`
-      top: calc(${({posit}) => posit % 2 === 0 ? 100 : 0}% - 2vh/2 + 1px);
+      top: calc(${({ posit }) => (posit % 2 === 0 ? 100 : 0)}% - 2vh/2 + 1px);
       left: calc(5vh - 2vh/2);
     `}
   }
@@ -126,8 +126,8 @@ const P = styled.p`
 const I = styled(FontAwesomeIcon)`
   display: block;
 
-  transform: rotate(${({left}) => left ? 90 : -90}deg);
-  transform: rotate(${({toDown}) => toDown ? 0 : null}deg);
+  transform: rotate(${({ left }) => (left ? 90 : -90)}deg);
+  transform: rotate(${({ toDown }) => (toDown ? 0 : null)}deg);
 
   ${media.desktop`
     display: block;
@@ -177,11 +177,11 @@ const Arrow = styled.div`
   position: relative;
   cursor: pointer;
 
-  :first-child{
+  :first-child {
     margin-right: 10px;
   }
 
-  ::before{
+  ::before {
     content: '';
     display: block;
     position: absolute;
@@ -192,46 +192,45 @@ const Arrow = styled.div`
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 50px;
     opacity: 0;
-    transition: opacity .2s;
+    transition: opacity 0.2s;
   }
 
-  :hover::before{
+  :hover::before {
     opacity: 1;
   }
-
 `;
 
-class Aktualnosci extends Component{
-
-  constructor(){
+class Aktualnosci extends Component {
+  constructor() {
     super();
 
     this.state = {
-      posLeft: 0,
-    }
+      posLeft: 0
+    };
   }
 
-  toLeft = (a) => { 
+  toLeft = a => {
     const b = a - 3;
     const c = this.state.posLeft / 30;
     const wyn = b - c;
-    if(wyn > 0) this.setState({posLeft: this.state.posLeft + 30});
-    console.log(this.state.posLeft)
-  }
+    if (wyn > 0) this.setState({ posLeft: this.state.posLeft + 30 });
+    console.log(this.state.posLeft);
+  };
 
   toRight = () => {
-    if(this.state.posLeft <= 0){} else {
-      this.setState({posLeft: this.state.posLeft - 30});
+    if (this.state.posLeft <= 0) {
+    } else {
+      this.setState({ posLeft: this.state.posLeft - 30 });
     }
-  }
+  };
 
-  render(){
-    return(
+  render() {
+    return (
       <StaticQuery
         query={graphql`
-          query{
-            inf{
-              poszczegolneAktualnoscis{
+          query {
+            inf {
+              poszczegolneAktualnoscis {
                 id
                 data
                 opis
@@ -239,44 +238,42 @@ class Aktualnosci extends Component{
             }
           }
         `}
-        
-        render={({inf : {poszczegolneAktualnoscis}}) => (
+        render={({ inf: { poszczegolneAktualnoscis } }) => (
           <>
-            <MainWrapper className={'sec3'}>
-              <AktualnosciTitle/>
+            <MainWrapper className="sec3">
+              <AktualnosciTitle />
               <WrapperForInf>
-                {
-                  poszczegolneAktualnoscis.map((element, index) => (
-                    <OneInf
-                      posit={index}
-                      rowNr={`${index+1}/${index + 1}`}
-                      key={`information${index}`}
-                      posLeft={this.state.posLeft}
-                    >
-                      <H1>{element.data}</H1>
-                      <P>{element.opis}</P>
-                    </OneInf>
-                  ))
-                }
+                {poszczegolneAktualnoscis.map((element, index) => (
+                  <OneInf
+                    posit={index}
+                    rowNr={`${index + 1}/${index + 1}`}
+                    key={`information${index}`}
+                    posLeft={this.state.posLeft}
+                  >
+                    <H1>{element.data}</H1>
+                    <P>{element.opis}</P>
+                  </OneInf>
+                ))}
               </WrapperForInf>
               <CenterBox>
-                <I toDown icon="angle-down"></I>
+                <I toDown icon="angle-down" />
               </CenterBox>
               <BoxForArrow>
                 <Arrow onClick={() => this.toRight()}>
-                  <I left icon="angle-down"></I>
+                  <I left icon="angle-down" />
                 </Arrow>
-                <Arrow onClick={() => this.toLeft(poszczegolneAktualnoscis.length)}>
-                  <I icon="angle-down"></I>                  
+                <Arrow
+                  onClick={() => this.toLeft(poszczegolneAktualnoscis.length)}
+                >
+                  <I icon="angle-down" />
                 </Arrow>
               </BoxForArrow>
             </MainWrapper>
           </>
         )}
       />
-    )
+    );
   }
-  
-};
+}
 
 export default Aktualnosci;

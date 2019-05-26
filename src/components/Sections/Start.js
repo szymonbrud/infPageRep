@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
-import { StaticQuery, graphql } from "gatsby";
+import { StaticQuery, graphql } from 'gatsby';
 import YellowRadiusBox from '../yellowRadiusBox/yellowRadiusBox';
 import bg from '../../images/bgProfessor.png';
 import logo from '../../images/logo.png';
@@ -30,6 +30,11 @@ const MainWrapper = styled.div`
 const BoxTitle = styled.div`
   grid-column: 1/3;
   grid-row: 2/3;
+  margin-top: -6%;
+
+  ${media.tablet`
+    margin: 0;
+  `}
 
   ${media.desktop`
     grid-column: 1/2;
@@ -39,12 +44,12 @@ const BoxTitle = styled.div`
 
 const H1 = styled.h1`
   color: ${colors.yellow};
-  font-size: ${({theme}) => theme.size.m};
+  font-size: ${({ theme }) => theme.size.m};
   font-weight: ${fonts.medium};
   margin: 0 5% 1%;
 
   ${media.phone`
-    font-size: ${({theme}) => theme.size.x};
+    font-size: ${({ theme }) => theme.size.x};
   `}
 
   ${media.tablet`
@@ -64,10 +69,10 @@ const P = styled.p`
   font-weight: ${fonts.regular};
   width: 80%;
   margin: 0 10%;
-  font-size: ${({theme}) => theme.size.xs};
+  font-size: ${({ theme }) => theme.size.xs};
 
   ${media.phone`
-    font-size: ${({theme}) => theme.size.s};
+    font-size: ${({ theme }) => theme.size.s};
   `}
 
   ${media.tablet`
@@ -95,7 +100,6 @@ const Img = styled.div`
   `}
 `;
 
-
 const Logo = styled.div`
   justify-self: center;
   width: 100vmin;
@@ -116,13 +120,17 @@ const Logo = styled.div`
 const Box = styled(YellowRadiusBox)`
   width: 50%;
   height: 5vh;
-  font-size: ${({theme}) => theme.size.xs};
+  font-size: ${({ theme }) => theme.size.xs};
   margin: 2% 0 0 40%;
   border-radius: 50px;
 
   display: none;
 
-  
+  cursor: pointer;
+  :hover {
+    background: #ffcb00;
+  }
+
   ${media.desktop`
     height: 6vmin;
     width: 40%;
@@ -137,7 +145,7 @@ const Box = styled(YellowRadiusBox)`
 const Box2 = styled(YellowRadiusBox)`
   width: 80%;
   height: 7vh;
-  font-size: 1.1rem;
+  font-size: 1rem;
   margin: 2% 0 0 15%;
   grid-column: 1/3;
   grid-row: 4/5;
@@ -155,39 +163,46 @@ const Box2 = styled(YellowRadiusBox)`
   `}
 `;
 
-const Start = () => (
-  <StaticQuery
-    query={graphql`
-      query{
-        inf {
-          stronaGlownas{
-            id
-            napis
-            kiedyNapis
-          }
-        }
-      }
-    `}
-    
-    render={({inf : {stronaGlownas}}) => (
-      <>
-        <MainWrapper className={'sec1'}>
-          <BoxTitle>
-            <H1><B>Kółko </B>informatyczne</H1>
-            <P>{
-              stronaGlownas[0].napis
-            }</P>
-            <Box>AKTULANOŚCI</Box>
-          </BoxTitle>
-          <Logo/>
-          <Box2>{stronaGlownas[0].kiedyNapis}</Box2>
-          <Img/>
-          <Tablica string={stronaGlownas[0].kiedyNapis}/>
-        </MainWrapper>
-      </>
-    )}
-  />
-);
+class Start extends Component {
+  toParent = () => {
+    console.log('tak');
+    this.props.clicedMenu(2);
+  };
 
+  render() {
+    return (
+      <StaticQuery
+        query={graphql`
+          query {
+            inf {
+              stronaGlownas {
+                id
+                napis
+                kiedyNapis
+              }
+            }
+          }
+        `}
+        render={({ inf: { stronaGlownas } }) => (
+          <>
+            <MainWrapper className="sec1">
+              <BoxTitle>
+                <H1>
+                  <B>Kółko </B>informatyczne
+                </H1>
+                <P>{stronaGlownas[0].napis}</P>
+                <Box onClick={() => this.toParent()}>AKTULANOŚCI</Box>
+              </BoxTitle>
+              <Logo />
+              <Box2>{stronaGlownas[0].kiedyNapis}</Box2>
+              <Img />
+              <Tablica string={stronaGlownas[0].kiedyNapis} />
+            </MainWrapper>
+          </>
+        )}
+      />
+    );
+  }
+}
 
 export default Start;

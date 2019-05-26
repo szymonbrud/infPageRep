@@ -19,7 +19,7 @@ const MainWrapper = styled.div`
     display: flex;
   `}
 
-  ::before{
+  ::before {
     content: '';
     display: block;
     width: 100%;
@@ -27,8 +27,8 @@ const MainWrapper = styled.div`
     position: absolute;
     background: #fff;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    opacity: ${({visibleMenu}) => visibleMenu ? '1' : '0'};
-    transition: opacity .2s;
+    opacity: ${({ visibleMenu }) => (visibleMenu ? '1' : '0')};
+    transition: opacity 0.2s;
   }
 `;
 
@@ -49,33 +49,34 @@ const OneElemnt = styled.p`
   position: relative;
   cursor: pointer;
 
-  ::before, ::after{
+  ::before,
+  ::after {
     display: block;
     content: '';
     width: 120%;
     height: 2px;
     border-radius: 50px;
     position: absolute;
-    bottom: -10%; 
+    bottom: -10%;
     left: -10%;
-    transition: transform .2s;
+    transition: transform 0.2s;
   }
 
-  ::after{
-    background: black; 
+  ::after {
+    background: black;
     transform: scaleX(0);
   }
 
-  ::before{
-    background: ${colors.yellow}; 
-    transform: scaleX(${({whereWeAreHere}) => whereWeAreHere ? '1' : '0'});
+  ::before {
+    background: ${colors.yellow};
+    transform: scaleX(${({ whereWeAreHere }) => (whereWeAreHere ? '1' : '0')});
   }
 
-  :hover::after{
+  :hover::after {
     transform: scaleX(1);
   }
 
-  :hover::before{
+  :hover::before {
     transform: scaleX(0);
   }
 
@@ -89,12 +90,12 @@ const H1 = styled.h1`
   display: block;
   color: ${colors.yellow};
   font-size: 2rem;
-  font-weight: ${fonts.medium}; 
+  font-weight: ${fonts.medium};
   position: relative;
   left: 5%;
 
-  transition: transform .2s .3s;
-  transform: translateX(${({visibleMenu}) => visibleMenu ? 0 : -200}%);
+  transition: transform 0.2s 0.3s;
+  transform: translateX(${({ visibleMenu }) => (visibleMenu ? 0 : -200)}%);
 
   ${media.bigDesktop`
     font-size: 2.6rem;
@@ -105,31 +106,34 @@ const B = styled.b`
   font-weight: ${fonts.bold};
 `;
 
-
-class MenuDesktop extends Component{
-
-  toParent = (number) => {
+class MenuDesktop extends Component {
+  toParent = number => {
     this.props.clicedMenu(number);
-  }
+  };
 
-  render(){
-
+  render() {
     const { whereWeAreHere, visibleMenu } = this.props;
 
-    return(
+    return (
       <>
         <MainWrapper visibleMenu={visibleMenu}>
-          <H1 visibleMenu={visibleMenu}><B>Kółko </B>informatyczne</H1>
+          <H1 visibleMenu={visibleMenu}>
+            <B>Kółko </B>informatyczne
+          </H1>
           <WrapperElement>
-            {
-              NavNames.map((element, index) => (
-                <OneElemnt onClick={() => this.toParent(index)} key={element} whereWeAreHere={index + 1 === whereWeAreHere ? true : false}>{element}</OneElemnt>
-              ))
-            }
+            {NavNames.map((element, index) => (
+              <OneElemnt
+                onClick={() => this.toParent(index)}
+                key={element}
+                whereWeAreHere={index + 1 === whereWeAreHere}
+              >
+                {element}
+              </OneElemnt>
+            ))}
           </WrapperElement>
         </MainWrapper>
       </>
-    )
+    );
   }
 }
 

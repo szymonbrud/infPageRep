@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { StaticQuery, graphql } from "gatsby";
+import { StaticQuery, graphql } from 'gatsby';
 import { colors } from '../../utils/colors';
 import media from '../../utils/media';
 
@@ -20,44 +20,48 @@ const MainWrapper = styled.div`
 
 const WrapperArticle = styled.div`
   margin-top: 10vh;
-  width: 100%;
+  width: 90%;
   justify-content: space-around;
   position: relative;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 400px);
+
+  ${media.bigDesktop`
+    grid-template-columns: repeat(auto-fill, 500px);
+  `}
 `;
 
 const OneArticle = styled.div`
-  width: 22%;
-  min-height: 10vh;
-  max-height: 60vh;
+  min-height: 43vh;
+  width: 90%;
+  justify-self: center;
   border: solid 2px ${colors.yellow};
   border-radius: 3px;
-  flex-shrink: 0;
   position: relative;
   left: 0%;
   display: flex;
   flex-direction: column;
-  margin: 1%;
+  margin-top: 10%;
   overflow: hidden;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `;
 
 const Img = styled.div`
   flex-shrink: 0;
   width: 92%;
   margin: 4% 4%;
-  height: 20vmin;
-  background-image: url(${({bgImage}) => bgImage});
+  height: 22vmin;
+  background-image: url(${({ bgImage }) => bgImage});
   background-size: cover;
   background-repeat: no-repeat;
 `;
 
 const H1 = styled.h1`
   margin: 0 0 0 5%;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
 
   ${media.desktop`
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   `}
 
   ${media.bigDesktop`
@@ -72,7 +76,7 @@ const P = styled.p`
   padding-bottom: 10%;
 
   ${media.desktop`
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   `}
 
   ${media.bigDesktop`
@@ -80,55 +84,41 @@ const P = styled.p`
   `}
 `;
 
-
-class ArticlesDesktop extends Component{
-  render(){
-    return(
-    <StaticQuery
+class ArticlesDesktop extends Component {
+  render() {
+    return (
+      <StaticQuery
         query={graphql`
-          query{
-            inf{
-              coRobimyArtykulies{
+          query {
+            inf {
+              coRobimyArtykulies {
                 id
                 tytul
                 wiecej
                 obrazek {
-                  status
-                  updatedAt
-                  createdAt
-                  id
-                  handle
-                  fileName
-                  height
-                  width
-                  size
-                  mimeType
                   url
                 }
               }
             }
           }
         `}
-        
-        render={({inf : {coRobimyArtykulies}}) => (
+        render={({ inf: { coRobimyArtykulies } }) => (
           <>
             <MainWrapper>
               <WrapperArticle>
-                {
-                  coRobimyArtykulies.map((element, index) => (
-                    <OneArticle key={element.tytul}>
-                      <Img bgImage={coRobimyArtykulies[0].obrazek.url}></Img>
-                      <H1>{element.tytul}</H1>
-                      <P>{element.wiecej}</P>
-                    </OneArticle>
-                  ))
-                }
+                {coRobimyArtykulies.map(element => (
+                  <OneArticle key={element.id}>
+                    <Img bgImage={element.obrazek.url} />
+                    <H1>{element.tytul}</H1>
+                    <P>{element.wiecej}</P>
+                  </OneArticle>
+                ))}
               </WrapperArticle>
             </MainWrapper>
           </>
         )}
       />
-    )
+    );
   }
 }
 
