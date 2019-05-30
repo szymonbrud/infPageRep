@@ -32,15 +32,6 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-source-graphql',
-      options: {
-        typeName: 'INF',
-        fieldName: 'inf',
-        url:
-          'https://api-euwest.graphcms.com/v1/cjur48txh44wa01faool9za2w/master'
-      }
-    },
-    {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: `0ldu13mmu143`,

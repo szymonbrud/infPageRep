@@ -77,16 +77,16 @@ class IndexPage extends Component {
       if (visibleMenu !== true) this.setState({ visibleMenu: true });
     } else if (visibleMenu !== false) this.setState({ visibleMenu: false });
 
-    if (window.pageYOffset <= wysWszystkichSek[1]) {
+    if (window.pageYOffset <= wysWszystkichSek[1] - wysWszystkichSek[1]/2) {
       if (whereWeAreHere !== 1) this.setState({ whereWeAreHere: 1 });
     } else if (
-      window.pageYOffset >= wysWszystkichSek[1] &&
-      window.pageYOffset <= wysWszystkichSek[2]
+      window.pageYOffset >= wysWszystkichSek[1] - wysWszystkichSek[1]/2 &&
+      window.pageYOffset <= wysWszystkichSek[2] - wysWszystkichSek[1]/2
     ) {
       if (whereWeAreHere !== 2) this.setState({ whereWeAreHere: 2 });
     } else if (
-      window.pageYOffset >= wysWszystkichSek[2] &&
-      window.pageYOffset <= wysWszystkichSek[3]
+      window.pageYOffset >= wysWszystkichSek[2] - wysWszystkichSek[1]/2 &&
+      window.pageYOffset <= wysWszystkichSek[3] - wysWszystkichSek[1]/2
     ) {
       if (whereWeAreHere !== 3) this.setState({ whereWeAreHere: 3 });
     } else if (whereWeAreHere !== 4) this.setState({ whereWeAreHere: 4 });
