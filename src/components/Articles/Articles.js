@@ -121,25 +121,29 @@ class Articles extends Component {
       <StaticQuery
         query={graphql`
           query {
-            inf {
-              coRobimyArtykulies {
-                id
-                tytul
-                wiecej
+            allContentfulCoRobimyArtykuly{
+              edges{
+                node{
+                  id
+                  title
+                  more{
+                    more
+                  }
+                }
               }
             }
           }
         `}
-        render={({ inf: { coRobimyArtykulies } }) => (
+        render={({ allContentfulCoRobimyArtykuly: { edges } }) => (
           <>
             <MainWrapper>
-              {coRobimyArtykulies.map((article, index) => (
+              {edges.map((article, index) => (
                 <ArticleWrapper
-                  key={`art ${coRobimyArtykulies.id}`}
+                  key={`art ${article.node.id}`}
                   className={`art${index}`}
                 >
-                  <H1>{article.tytul}</H1>
-                  <P>{article.wiecej}</P>
+                  <H1>{article.node.title}</H1>
+                  <P>{article.node.more.more}</P>
                   <I
                     icon="angle-down"
                     className={`ico${index}`}

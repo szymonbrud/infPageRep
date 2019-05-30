@@ -90,27 +90,36 @@ class ArticlesDesktop extends Component {
       <StaticQuery
         query={graphql`
           query {
-            inf {
-              coRobimyArtykulies {
-                id
-                tytul
-                wiecej
-                obrazek {
-                  url
+            allContentfulCoRobimyArtykuly{
+              edges{
+                node{
+                  id
+                  title
+                  more{
+                    more
+                  }
+                  image{
+                    contentful_id
+                    file {
+                      url
+                      fileName
+                      contentType
+                    }
+                  }
                 }
               }
             }
           }
         `}
-        render={({ inf: { coRobimyArtykulies } }) => (
+        render={({ allContentfulCoRobimyArtykuly: { edges } }) => (
           <>
             <MainWrapper>
               <WrapperArticle>
-                {coRobimyArtykulies.map(element => (
-                  <OneArticle key={element.id}>
-                    <Img bgImage={element.obrazek.url} />
-                    <H1>{element.tytul}</H1>
-                    <P>{element.wiecej}</P>
+                {edges.map(element => (
+                  <OneArticle key={element.node.id}>
+                    <Img bgImage={element.node.image.file.url} />
+                    <H1>{element.node.title}</H1>
+                    <P>{element.node.more.more}</P>
                   </OneArticle>
                 ))}
               </WrapperArticle>

@@ -40,7 +40,7 @@ const OneInf = styled.div`
   ${media.desktop`
     grid-column: ${({ rowNr }) => rowNr};
     grid-row: ${({ posit }) => (posit % 2 === 0 ? '1/2' : '2/3')};
-    width: 30vw;
+    width: ${({active})=> active ? '40vw' : '30vw'};
     padding-bottom: 5%;
     padding-top: 5%;
     transform: translateX(${({ posLeft }) => -posLeft}vw);
@@ -162,7 +162,7 @@ const BoxForArrow = styled.div`
   justify-content: center;
 
   ${media.desktop`
-    display: flex;
+    display: ${({active}) => active ? 'none' : 'flex'};
   `}
 `;
 
@@ -229,41 +229,46 @@ class Aktualnosci extends Component {
       <StaticQuery
         query={graphql`
           query {
-            inf {
-              poszczegolneAktualnoscis {
-                id
-                data
-                opis
+            allContentfulAktualnosciArtykuly{
+              edges{
+                node{
+                  id
+                  data
+                  content{
+                    content
+                  }
+                }
               }
             }
           }
         `}
-        render={({ inf: { poszczegolneAktualnoscis } }) => (
+        render={({ allContentfulAktualnosciArtykuly: { edges } }) => (
           <>
             <MainWrapper className="sec3">
               <AktualnosciTitle />
               <WrapperForInf>
-                {poszczegolneAktualnoscis.map((element, index) => (
+                {edges.map((element, index) => (
                   <OneInf
+                  active={edges.length <= 2 ? true : false}
                     posit={index}
                     rowNr={`${index + 1}/${index + 1}`}
-                    key={`information${index}`}
+                    key={element.node.id}
                     posLeft={this.state.posLeft}
                   >
-                    <H1>{element.data}</H1>
-                    <P>{element.opis}</P>
+                    <H1>{element.node.data}</H1>
+                    <P>{element.node.content.content}</P>
                   </OneInf>
                 ))}
               </WrapperForInf>
               <CenterBox>
                 <I toDown icon="angle-down" />
               </CenterBox>
-              <BoxForArrow>
+              <BoxForArrow active={edges.length <= 3 ? true : false}>
                 <Arrow onClick={() => this.toRight()}>
                   <I left icon="angle-down" />
                 </Arrow>
                 <Arrow
-                  onClick={() => this.toLeft(poszczegolneAktualnoscis.length)}
+                  onClick={() => this.toLeft(edges.length)}
                 >
                   <I icon="angle-down" />
                 </Arrow>

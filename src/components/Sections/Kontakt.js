@@ -104,7 +104,7 @@ const WrapperForContactToMe = styled.div`
 
 const H1ContactMe = styled.h1`
   font-size: ${({ theme }) => theme.size.xs};
-  margin: 8% 0 0 2%;
+  margin: 8% 2% 0;
 
 
   ${media.tablet`
@@ -151,26 +151,28 @@ const Kontakt = () => (
   <StaticQuery
     query={graphql`
       query {
-        inf {
-          kontakts {
-            id
-            kogoEmaim
-            email
+        allContentfulKontakt{
+          edges{
+            node{
+              id
+              nameEmail
+              email
+            }
           }
         }
       }
     `}
-    render={({ inf: { kontakts } }) => (
+    render={({ allContentfulKontakt: { edges } }) => (
       <>
         <MainWrapper className="sec4">
           <H1>Kontakt</H1>
           <Img />
           <WrapperEmail>
             <WrapperEmailSchool>
-              {kontakts.map(element => (
-                <div key={element.id}>
-                  <EmailUser>{`${element.kogoEmaim}:`}</EmailUser>
-                  <EmailName>{element.email}</EmailName>
+              {edges.map(element => (
+                <div key={element.node.id}>
+                  <EmailUser>{`${element.node.nameEmail}:`}</EmailUser>
+                  <EmailName>{element.node.email}</EmailName>
                 </div>
               ))}
             </WrapperEmailSchool>

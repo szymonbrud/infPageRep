@@ -43,21 +43,24 @@ const CoRobimy = () => (
   <StaticQuery
     query={graphql`
       query{
-        inf{
-          coRobimies{
-            id
-            tytul
-            wiecej
+        allContentfulCoRobimy {
+          edges {
+            node {
+              title
+              moreTitle{
+                moreTitle
+              }
+            }
           }
         }
       }
     `}
     
-    render={({inf : {coRobimies}}) => (
+    render={({allContentfulCoRobimy: { edges }}) => (
       <>
         <MainWrapper className={'sec2'}>
-          <H1>{coRobimies[0].tytul}</H1>
-          <P>{coRobimies[0].wiecej}</P>
+          <H1>{edges[0].node.title}</H1>
+          <P>{edges[0].node.moreTitle.moreTitle}</P>
           <Articles/>
           <ArticlesDesktop/>
         </MainWrapper>

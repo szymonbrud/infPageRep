@@ -177,27 +177,27 @@ class Start extends Component {
             allContentfulStronaGlowna {
               edges {
                 node {
-                  napisGwny
-                  kiedy
+                  MainTitle
+                  when
                 }
               }
             }
           }
         `}
-        render={({ allContentfulStronaGlowna }) => (
+        render={({ allContentfulStronaGlowna: { edges } }) => (
           <>
             <MainWrapper className="sec1">
               <BoxTitle>
                 <H1>
                   <B>Kółko </B>informatyczne
                 </H1>
-                <P>{allContentfulStronaGlowna.edges[0].node.napisGwny}</P>
+                <P>{edges[0].node.MainTitle}</P>
                 <Box onClick={() => this.toParent()}>AKTULANOŚCI</Box>
               </BoxTitle>
               <Logo />
-              <Box2>{allContentfulStronaGlowna.edges[0].node.kiedy}</Box2>
+              <Box2>{edges[0].node.when}</Box2>
               <Img />
-              <Tablica string={allContentfulStronaGlowna.edges[0].node.kiedy} />
+              <Tablica string={edges[0].node.when} />
             </MainWrapper>
           </>
         )}

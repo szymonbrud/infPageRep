@@ -34,20 +34,20 @@ const AktualnosciTitle = () => (
   <StaticQuery
     query={graphql`
       query{
-        inf{
-          sekAktualnoscis{
-            id
-            gownyTytul
-            podTytul
+        allContentfulAktualnosci{
+          edges{
+            node{
+              MainTitle
+            }
           }
         } 
       }
     `}
     
-    render={({inf : {sekAktualnoscis}}) => (
+    render={({allContentfulAktualnosci : {edges}}) => (
       <>
-        <H1>{sekAktualnoscis[0].gownyTytul}</H1>
-        <P>{sekAktualnoscis[0].podTytul}</P>
+        <H1>{edges[0].node.MainTitle}</H1>
+        {/* <P>{sekAktualnoscis[0].podTytul}</P> */}
       </>
     )}
   />
