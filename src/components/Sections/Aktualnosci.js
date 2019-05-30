@@ -125,6 +125,7 @@ const P = styled.p`
 
 const I = styled(FontAwesomeIcon)`
   display: block;
+  margin-left: 2px;
 
   transform: rotate(${({ left }) => (left ? 90 : -90)}deg);
   transform: rotate(${({ toDown }) => (toDown ? 0 : null)}deg);

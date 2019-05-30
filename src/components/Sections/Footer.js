@@ -16,7 +16,7 @@ const MainWrapper = styled.div`
 `;
 
 const P1 = styled.p`
-  margin: 30px 0 0 0%;
+  margin: 30px 10px 0%;
   color: #000;
   width: 100%;
   font-size: ${({ theme }) => theme.size.s};
@@ -29,10 +29,11 @@ const P1 = styled.p`
 `;
 
 const P2 = styled.p`
-  margin: 20px 0 30px 0;
+  margin: 20px 0 30px;
   color: #fff;
   font-size: ${({ theme }) => theme.size.s};
   font-weight: ${fonts.medium};
+  text-align: center;
 
   ${media.bigDesktop`
     font-size: ${({ theme }) => theme.size.m};
