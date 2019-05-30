@@ -1,3 +1,10 @@
+const dotenv = require("dotenv")
+
+if (process.env.NODE_ENV !== "production") {
+  dotenv.config()
+}
+
+
 module.exports = {
   siteMetadata: {
     title: `Kółko informatyczne`,
@@ -36,6 +43,13 @@ module.exports = {
         url:
           'https://api-euwest.graphcms.com/v1/cjur48txh44wa01faool9za2w/master'
       }
-    }
+    },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `0ldu13mmu143`,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+      },
+    },
   ]
 };

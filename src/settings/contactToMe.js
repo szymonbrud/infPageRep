@@ -1,7 +1,7 @@
 export const contactToMe = [
   {
-    what_name: 'Mój git hub',
+    what_name: 'gitHub',
     kontakt: 'https://github.com/szymonqqaz',
-    type: 'link',
-  },
-]
+    type: 'link'
+  }
+];

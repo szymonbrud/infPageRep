@@ -174,29 +174,30 @@ class Start extends Component {
       <StaticQuery
         query={graphql`
           query {
-            inf {
-              stronaGlownas {
-                id
-                napis
-                kiedyNapis
+            allContentfulStronaGlowna {
+              edges {
+                node {
+                  napisGwny
+                  kiedy
+                }
               }
             }
           }
         `}
-        render={({ inf: { stronaGlownas } }) => (
+        render={({ allContentfulStronaGlowna }) => (
           <>
             <MainWrapper className="sec1">
               <BoxTitle>
                 <H1>
                   <B>Kółko </B>informatyczne
                 </H1>
-                <P>{stronaGlownas[0].napis}</P>
+                <P>{allContentfulStronaGlowna.edges[0].node.napisGwny}</P>
                 <Box onClick={() => this.toParent()}>AKTULANOŚCI</Box>
               </BoxTitle>
               <Logo />
-              <Box2>{stronaGlownas[0].kiedyNapis}</Box2>
+              <Box2>{allContentfulStronaGlowna.edges[0].node.kiedy}</Box2>
               <Img />
-              <Tablica string={stronaGlownas[0].kiedyNapis} />
+              <Tablica string={allContentfulStronaGlowna.edges[0].node.kiedy} />
             </MainWrapper>
           </>
         )}

@@ -91,6 +91,9 @@ const WrapperForContactToMe = styled.div`
   grid-row: 2/3;
   margin: 7vh 0 0 2%;
   min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   ${media.desktop`
     grid-column: 1/2;
@@ -100,11 +103,14 @@ const WrapperForContactToMe = styled.div`
 `;
 
 const H1ContactMe = styled.h1`
-  font-size: ${({ theme }) => theme.size.xs};;
-  margin-left: 2%;
+  font-size: ${({ theme }) => theme.size.xs};
+  margin: 8% 0 0 2%;
+
 
   ${media.tablet`
     font-size: 2rem;
+    margin: 8% 0 0 -6%;
+
   `}
 
   ${media.desktop`
@@ -122,6 +128,23 @@ const EmailNameA = styled.a`
   font-weight: ${fonts.regular};
   text-decoration: none;
   color: black;
+`;
+
+const StyledButtonMe = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 40px;
+  background: ${({ theme }) => theme.yellow};
+  color: ${({ theme }) => theme.white};
+  text-decoration: none;
+  cursor: pointer;
+  margin: 2% 0 0 -6%;
+
+  :hover {
+    background: #d6ac0c;
+  }
 `;
 
 const Kontakt = () => (
@@ -155,10 +178,10 @@ const Kontakt = () => (
               <H1ContactMe>
                 Strona napisana oraz zaprojektowana przez: Szymona Bruda
               </H1ContactMe>
-              <EmailUser>{`${contactToMe[0].what_name}: `}</EmailUser>
-              <EmailNameA href={contactToMe[0].kontakt} target="blank">
-                {`${contactToMe[0].kontakt}`}
-              </EmailNameA>
+              <StyledButtonMe href={contactToMe[0].kontakt} target="blank">
+                {`${contactToMe[0].what_name}`}
+              </StyledButtonMe>
+              <EmailNameA />
             </WrapperForContactToMe>
           </WrapperEmail>
         </MainWrapper>
