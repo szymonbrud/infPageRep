@@ -6,7 +6,7 @@ const glob = require(`glob`);
 const EXPIRATION_DATE_IN_DAYS = 7;
 
 const basePath = `./public`;
-const destinationPath = ``; // '/loremIpsum'
+const destinationPath = `/testyszy.cba.pl`; // '/loremIpsum'
 const config = {
   // We store the credentials for
   // our FTP server as environemnt
